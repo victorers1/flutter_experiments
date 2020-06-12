@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:experiment/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -6,10 +7,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  GlobalKey _bottomNavigationKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -17,52 +21,29 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => HomePage(),
       },
-      home: MyHomePage(title: 'Tela inicial'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Você pressionou o botão essa quantidade de vezes:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Curved navigation demo'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Dica',
-        child: Icon(Icons.add),
+        body: Container(
+          color: Colors.blueAccent,
+          child: Center(
+            child: Text('Curved navigation demo'),
+          ),
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          key: _bottomNavigationKey,
+          items: [
+            Icon(Icons.add, size: 30),
+            Icon(Icons.list, size: 30),
+            Icon(Icons.compare_arrows, size: 30),
+            Icon(Icons.person_outline, size: 30),
+            Icon(Icons.settings, size: 30),
+          ],
+          onTap: (index) {
+            print('Tab $index tapped');
+          },
+        ),
       ),
     );
   }
