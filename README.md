@@ -2,7 +2,7 @@
 
 My Flutter application to test packages. A new branch is created as I start with a new package.
 
-**WARN:** this repo is not intended to do a much as possible examples of every package available on [pub.dev](pub.dev). This is a playground for my self to test packages that I'm considering use in personal or professional projects.
+**WARN:** this repo is not intended to do a much as possible examples of every package available on [pub.dev](pub.dev). This is a playground for my self to test packages that I'm considering to use in personal or professional projects.
 
 ## Getting Started
 
