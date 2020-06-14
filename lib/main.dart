@@ -1,4 +1,5 @@
 import 'package:experiment/pages/home.dart';
+import 'package:experiment/pages/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/home': (context) => HomePage(),
+        '/profile': (context) => ProfilePage(),
       },
       home: MyHomePage(),
     );
@@ -41,7 +43,18 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Place your widgets here'),
+            RaisedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              child: Text('Home page'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: Text('Profile page'),
+            ),
           ],
         ),
       ),
