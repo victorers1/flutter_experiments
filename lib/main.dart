@@ -1,6 +1,7 @@
 import 'package:experiment/pages/home.dart';
 import 'package:experiment/pages/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,7 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Initial Screen'),
+        title: Shimmer.fromColors(
+          child: Text('shimmer demo'),
+          baseColor: Colors.grey[400],
+          highlightColor: Colors.white,
+          period: Duration(seconds: 3),
+        )
       ),
       body: Center(
         child: Column(
